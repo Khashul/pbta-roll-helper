@@ -1,0 +1,41 @@
+PbtA Roll Helper 1.0.0 installation
+====================================
+
+1. Create a folder named pbta-roll-helper inside:
+
+   FoundryVTT/Data/modules/
+
+2. Unzip the package's contents directly into that folder.
+3. Start or restart Foundry.
+4. Open your world.
+5. Go to Game Settings -> Manage Modules.
+6. Enable PbtA Roll Helper.
+7. Reload the world.
+8. Optional: create a Script Macro containing:
+
+   await game.pbtaRoller.roll();
+
+9. Put that launcher macro on player hotbars if you want manual rolling.
+   A ready-made copy of this macro is included in the `macros` folder.
+
+Module settings
+===============
+
+Open Game Settings -> Configure Settings -> Module Settings -> PbtA Roll Helper.
+
+The module can:
+
+- style native PbtA sheet rolls,
+- provide manual macro rolls, including for actors with no move items or
+  no named stats (typical for NPCs),
+- theme chat cards and Dice So Nice colours,
+- show or hide dice workings,
+- show result-specific move text,
+- show full move reference text,
+- sync checklist choices between players,
+- restrict checklist editing to actor owners and GMs,
+- let a configurable resource (e.g. Bedlam Hall Prestige) be spent after a
+  roll to add successes, on systems that have one,
+- lock older rolls against further changes once an actor has rolled again.
+
+See README.txt for the full feature list and settings reference.

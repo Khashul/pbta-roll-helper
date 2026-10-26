@@ -1,0 +1,65 @@
+<div class="pbta-roll-card pbta-skin pbta-skin-system pbta-result-{{result}} {{themeClass}}" data-pbta-theme="{{themeKey}}" data-pbta-current-result="{{result}}" style="--pbta-result-bg: {{resultData.background}}; --pbta-result-outline: {{resultData.outline}};">
+  <header class="pbta-skin-header">
+    <div class="pbta-skin-header-row">
+      <h2 class="pbta-skin-title">{{{moveTitle}}}</h2>
+      <div class="pbta-skin-total" data-pbta-total-line>{{#if outcomeIcon}}{{outcomeIcon}} {{/if}}{{total}}</div>
+    </div>
+    <div class="pbta-skin-result" data-pbta-outcome-result-line>{{outcomeHeading}} · {{sectionLabels.resultPrefix}} {{total}}</div>
+    <div class="pbta-skin-actor-line">{{sectionLabels.actorPrefix}}: {{{actorName}}} · {{statLabel}} {{statModifier}}{{#if hasSituationalModifier}} · <span class="pbta-card-modifier-note">{{situationalModifierText}}{{#if modifierReason}} {{modifierReason}}{{/if}}</span>{{/if}}</div>
+  </header>
+
+  <section class="pbta-skin-body">
+    {{#if hasSpendableResource}}
+      <div class="pbta-resource-control" data-pbta-resource hidden>
+        <div class="pbta-resource-form" data-pbta-resource-form>
+          <label>Spend <span data-pbta-resource-label>Resource</span> <span class="pbta-resource-available">(<span data-pbta-resource-available>0</span> available)</span></label>
+          <div class="pbta-resource-row">
+            <input type="number" min="1" step="1" value="1" data-pbta-resource-input>
+            <button type="button" data-pbta-resource-spend>Add Successes</button>
+          </div>
+        </div>
+        <div class="pbta-resource-spent" data-pbta-resource-spent hidden></div>
+        <div class="pbta-resource-locked" data-pbta-resource-locked hidden></div>
+      </div>
+    {{/if}}
+
+    {{#if showOutcomeSection}}
+      <section class="pbta-skin-outcome" data-pbta-outcome-section {{#unless showOutcomeText}}hidden{{/unless}}>
+        <div class="pbta-skin-kicker">{{sectionLabels.outcome}}</div>
+        <div class="pbta-skin-outcome-band" data-pbta-outcome-heading>{{outcomeHeading}}</div>
+        <div class="pbta-result-text-body">{{{outcomeHtml}}}</div>
+      </section>
+    {{/if}}
+
+    {{#if showFullMove}}
+      <details class="pbta-full-move pbta-skin-reference {{animatedDetailsClass}}" {{fullMoveOpenAttribute}}>
+        <summary><strong>{{sectionLabels.reference}}</strong></summary>
+        <div class="pbta-full-move-body">{{{fullDescription}}}</div>
+      </details>
+    {{/if}}
+
+    {{#if diceBreakdown}}
+      <details class="pbta-dice-breakdown pbta-skin-mechanics {{animatedDetailsClass}}">
+        <summary class="pbta-dice-header"><strong>{{sectionLabels.mechanics}}</strong><span class="pbta-dice-total">{{diceBreakdown.modeLabel}} · {{diceBreakdown.total}}</span></summary>
+        <div class="pbta-dice-body">
+          <div class="pbta-dice-grid">
+            <strong>Rolled</strong><div>{{{diceBreakdown.rolledHtml}}}</div>
+            <strong>Kept</strong><div>{{{diceBreakdown.keptHtml}}}</div>
+            {{#if diceBreakdown.hasDropped}}<strong>Dropped</strong><div>{{{diceBreakdown.droppedHtml}}}</div>{{/if}}
+            <strong>Stat</strong><div>{{diceBreakdown.statModifierText}}</div>
+            {{#if diceBreakdown.hasSituationalModifier}}<strong>Situation</strong><div>{{diceBreakdown.situationalModifierText}}{{#if diceBreakdown.modifierReason}} · {{diceBreakdown.modifierReason}}{{/if}}</div>{{/if}}
+            <strong>Total Mod</strong><div>{{diceBreakdown.modifierText}}</div>
+          </div>
+          <div class="pbta-dice-equation">{{diceBreakdown.equation}}</div>
+        </div>
+      </details>
+    {{/if}}
+    {{#if showRollHtml}}{{{rollHtml}}}{{/if}}
+
+    {{#if showDebugInfo}}
+      <div class="pbta-debug-info">
+        <strong>GM Debug</strong> — Adapter: {{debugInfo.adapter}} · Group: {{debugInfo.moveGroup}} · Stat: {{{debugInfo.detectedStat}}} · Cache: {{#if debugInfo.cacheHit}}hit{{else}}miss{{/if}}
+      </div>
+    {{/if}}
+  </section>
+</div>

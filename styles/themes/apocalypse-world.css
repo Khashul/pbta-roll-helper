@@ -1,0 +1,68 @@
+/* PbtA Roll Helper theme: Apocalypse World — scorched photocopy */
+.pbta-theme-apocalypse-world {
+  --pbta-card-bg: #e7dcc4;
+  --pbta-card-text: #1f1710;
+  --pbta-card-font: Impact, "Arial Narrow", "Trebuchet MS", Arial, sans-serif;
+  --pbta-panel-bg: rgba(239, 229, 205, .92);
+  --pbta-panel-header-bg: rgba(0,0,0,.14);
+  --pbta-header-bg: #1b1712;
+  --pbta-die-bg: #f4e8c9;
+}
+
+.pbta-theme-apocalypse-world.pbta-skin-system {
+  border: 3px solid #21170f;
+  border-radius: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.025), rgba(0,0,0,.025) 1px, transparent 1px, transparent 6px),
+    #e7dcc4;
+  box-shadow: 4px 4px 0 rgba(0,0,0,.28);
+  color: #1f1710;
+}
+
+.pbta-theme-apocalypse-world .pbta-skin-header {
+  background: #1b1712;
+  border-bottom: 5px solid var(--pbta-result-bg);
+  color: #f7ead0;
+  transform: skewX(-1deg);
+}
+
+.pbta-theme-apocalypse-world .pbta-skin-title {
+  text-transform: uppercase;
+  letter-spacing: .035em;
+  line-height: .95;
+  font-size: clamp(1.22rem, 5vw, 1.65rem);
+}
+
+.pbta-theme-apocalypse-world .pbta-skin-total {
+  padding: .1rem .35rem;
+  border: 2px solid #f7ead0;
+  color: #f7ead0;
+  background: var(--pbta-result-bg);
+}
+
+.pbta-theme-apocalypse-world :is(.pbta-skin-result,.pbta-skin-actor-line,.pbta-skin-kicker,summary) {
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+
+.pbta-theme-apocalypse-world .pbta-skin-outcome {
+  border: 2px solid #21170f;
+  border-left: 9px solid var(--pbta-result-bg);
+  border-radius: 0;
+  background: rgba(255,248,220,.72);
+  box-shadow: 3px 3px 0 rgba(0,0,0,.14);
+}
+
+.pbta-theme-apocalypse-world .pbta-skin-kicker,
+.pbta-theme-apocalypse-world .pbta-skin-outcome-band {
+  color: #21170f;
+  font-weight: 900;
+}
+
+.pbta-theme-apocalypse-world :is(.pbta-skin-reference,.pbta-skin-mechanics) {
+  border: 2px solid rgba(0,0,0,.42);
+  border-radius: 0;
+  background: rgba(255,248,220,.55);
+}
+
+.pbta-theme-apocalypse-world :is(.pbta-skin-title,.pbta-skin-result,.pbta-skin-actor-line,.pbta-skin-kicker,summary,p,li,a){overflow-wrap:anywhere;word-break:normal;}

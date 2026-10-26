@@ -1,0 +1,75 @@
+/* PbtA Roll Helper theme: Urban Shadows — modern occult noir */
+.pbta-theme-urban-shadows {
+  --pbta-card-bg: #151821;
+  --pbta-card-text: #f0edf7;
+  --pbta-card-font: "Trebuchet MS", Arial, sans-serif;
+  --pbta-panel-bg: rgba(255, 255, 255, .085);
+  --pbta-panel-header-bg: rgba(255, 255, 255, .13);
+  --pbta-header-bg: #241c34;
+  --pbta-die-bg: rgba(255, 255, 255, .12);
+  --pbta-card-shadow: 0 2px 10px rgba(0,0,0,.36);
+}
+
+.pbta-theme-urban-shadows.pbta-roll-card,
+.pbta-theme-urban-shadows.pbta-skin,
+.pbta-theme-urban-shadows .pbta-skin-body,
+.pbta-theme-urban-shadows .pbta-card-body,
+.pbta-theme-urban-shadows .pbta-full-move-body,
+.pbta-theme-urban-shadows .pbta-result-text-body,
+.pbta-theme-urban-shadows .pbta-outcome-line,
+.pbta-theme-urban-shadows .pbta-outcome-prompt,
+.pbta-theme-urban-shadows .pbta-dice-body,
+.pbta-theme-urban-shadows label { color: #f0edf7; }
+
+.pbta-theme-urban-shadows.pbta-skin-system {
+  border-color: rgba(217,207,255,.28);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(123,103,156,.12), transparent 42%),
+    linear-gradient(180deg,#171a24,#10131a);
+  box-shadow: 0 2px 12px rgba(0,0,0,.42);
+}
+
+.pbta-theme-urban-shadows .pbta-skin-header {
+  background: linear-gradient(135deg,#111722,var(--pbta-result-bg));
+  border-bottom: 1px solid rgba(217,207,255,.24);
+  color: #fff;
+}
+
+.pbta-theme-urban-shadows .pbta-skin-title { letter-spacing: .02em; }
+
+.pbta-theme-urban-shadows .pbta-skin-total {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(217,207,255,.25);
+}
+
+.pbta-theme-urban-shadows .pbta-skin-outcome {
+  background: rgba(255,255,255,.075);
+  border-color: rgba(255,255,255,.20);
+  border-left: 5px solid var(--pbta-result-bg);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.pbta-theme-urban-shadows :is(.pbta-skin-reference,.pbta-skin-mechanics,.pbta-full-move,.pbta-dice-breakdown,.pbta-result-text) {
+  color:#f0edf7;
+  background:rgba(255,255,255,.085);
+  border-color:rgba(255,255,255,.20);
+}
+
+.pbta-theme-urban-shadows :is(.pbta-skin-reference summary,.pbta-skin-mechanics summary,.pbta-full-move summary,.pbta-dice-header,.pbta-result-text summary) {
+  color:#fff;
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.22);
+}
+
+.pbta-theme-urban-shadows .pbta-skin-kicker,
+.pbta-theme-urban-shadows .pbta-skin-outcome-band { color:#d9cfff; }
+
+.pbta-theme-urban-shadows a,
+.pbta-theme-urban-shadows a.content-link,
+.pbta-theme-urban-shadows .content-link { color:#f6e8ff; text-shadow:none; }
+
+.pbta-theme-urban-shadows .pbta-die-pill { color:#fff; background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.30); }
+.pbta-theme-urban-shadows .pbta-die-pill--dropped { color:#d5cede; background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.18); }
+
+.pbta-theme-urban-shadows :is(.pbta-skin-title,.pbta-skin-result,.pbta-skin-actor-line,.pbta-skin-kicker,summary,p,li,a){overflow-wrap:anywhere;word-break:normal;}

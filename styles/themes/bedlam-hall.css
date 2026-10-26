@@ -1,0 +1,393 @@
+/* PbtA Roll Helper theme: Bedlam Hall — printed-page / parlour dossier */
+
+.pbta-theme-bedlam-hall,
+.pbta-skin-bedlam-hall {
+  --pbta-paper: #f8f5ef;
+  --pbta-paper-warm: #f4ead4;
+  --pbta-ink: #2b2926;
+  --pbta-muted: #6c655c;
+  --pbta-divider: #d7d0c4;
+  --pbta-result-success: #2f5d3a;
+  --pbta-result-partial: #8a6233;
+  --pbta-result-miss: #6b2323;
+  --pbta-title-font: "Cormorant Garamond", "Libre Baskerville", "Iowan Old Style", Georgia, serif;
+  --pbta-body-font: "Source Sans Pro", "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --pbta-caption-font: var(--pbta-body-font);
+
+  --pbta-card-bg: var(--pbta-paper);
+  --pbta-card-text: var(--pbta-ink);
+  --pbta-card-font: var(--pbta-body-font);
+  --pbta-panel-bg: transparent;
+  --pbta-panel-header-bg: transparent;
+  --pbta-die-bg: #fffaf0;
+}
+
+.pbta-skin-bedlam-hall.pbta-result-success { --pbta-result-outline: var(--pbta-result-success); }
+.pbta-skin-bedlam-hall.pbta-result-partial { --pbta-result-outline: var(--pbta-result-partial); }
+.pbta-skin-bedlam-hall.pbta-result-failure { --pbta-result-outline: var(--pbta-result-miss); }
+
+.pbta-skin-bedlam-hall {
+  border: 0;
+  border-radius: 7px;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(72, 54, 37, .035), transparent 30%),
+    linear-gradient(180deg, var(--pbta-paper) 0%, var(--pbta-paper-warm) 100%);
+  color: var(--pbta-ink);
+  box-shadow: 0 2px 8px rgba(32, 22, 14, .14);
+  font-family: var(--pbta-body-font);
+  letter-spacing: 0;
+}
+
+.pbta-bedlam-header {
+  container-type: inline-size;
+  display: grid;
+  grid-template-areas:
+    "classification"
+    "title"
+    "meta"
+    "rule"
+    "result";
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: .22rem;
+  min-width: 0;
+  padding: 13px 14px 6px;
+  background: transparent;
+  color: var(--pbta-ink);
+  text-align: center;
+}
+
+.pbta-bedlam-classification {
+  grid-area: classification;
+  margin: 0 0 .2rem;
+  color: var(--pbta-muted);
+  font-family: var(--pbta-caption-font);
+  font-size: .61rem;
+  font-weight: 800;
+  letter-spacing: .20em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.pbta-bedlam-title {
+  grid-area: title;
+  margin: 0;
+  color: var(--pbta-ink);
+  font-family: var(--pbta-title-font);
+  font-size: clamp(1.18rem, 5.2vw, 1.48rem);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.08;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.pbta-bedlam-title a,
+.pbta-bedlam-title a.content-link {
+  color: var(--pbta-ink) !important;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.pbta-bedlam-title a:hover,
+.pbta-bedlam-title a.content-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .12em;
+}
+
+.pbta-bedlam-title :is(i, .fas, .fa-solid),
+.pbta-bedlam-title .content-link i {
+  display: none !important;
+}
+
+.pbta-bedlam-meta {
+  grid-area: meta;
+  margin-top: .28rem;
+  color: var(--pbta-muted);
+  font-family: var(--pbta-body-font);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .015em;
+  line-height: 1.25;
+}
+
+.pbta-bedlam-rule {
+  grid-area: rule;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  margin: .48rem auto .28rem;
+  color: #6b543c;
+  font-family: var(--pbta-title-font);
+  font-size: .78rem;
+  opacity: .85;
+}
+
+.pbta-bedlam-rule::before,
+.pbta-bedlam-rule::after {
+  content: "";
+  flex: 1;
+  max-width: 4.4rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pbta-divider));
+}
+
+.pbta-bedlam-rule::after {
+  background: linear-gradient(90deg, var(--pbta-divider), transparent);
+}
+
+.pbta-bedlam-result-line {
+  grid-area: result;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .65rem;
+  min-width: 0;
+  margin-top: .05rem;
+  color: var(--pbta-result-outline);
+  text-align: left;
+}
+
+.pbta-bedlam-outcome-name {
+  color: var(--pbta-result-outline);
+  font-family: var(--pbta-caption-font);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .15em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.pbta-bedlam-total {
+  min-width: 1.8rem;
+  padding: .08rem .34rem;
+  border-radius: 999px;
+  background: var(--pbta-result-outline);
+  color: #fffdf7;
+  font-family: var(--pbta-body-font);
+  font-size: clamp(.95rem, 3.5vw, 1.12rem);
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.pbta-bedlam-body {
+  --pbta-card-section-gap: .55rem;
+  padding: 6px 14px 14px;
+}
+
+.pbta-bedlam-outcome {
+  margin: 0;
+  padding: 10px 11px 11px;
+  border: 1px solid color-mix(in srgb, var(--pbta-result-outline) 22%, var(--pbta-divider));
+  border-left: 3px solid var(--pbta-result-outline);
+  border-radius: 4px;
+  background: rgba(255, 250, 240, .50);
+}
+
+.pbta-bedlam-section-label {
+  margin: 0 0 .38rem;
+  color: var(--pbta-ink);
+  font-family: var(--pbta-title-font);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.pbta-skin-bedlam-hall .pbta-result-text-body {
+  margin: 0;
+  padding: 0;
+  color: var(--pbta-ink);
+  font-family: var(--pbta-body-font);
+  font-size: .8rem;
+  line-height: 1.42;
+}
+
+.pbta-skin-bedlam-hall .pbta-result-text-body :is(p, li) { line-height: 1.42; }
+.pbta-skin-bedlam-hall .pbta-result-text-body strong,
+.pbta-skin-bedlam-hall .pbta-outcome-prompt strong { font-weight: 700; }
+.pbta-skin-bedlam-hall .pbta-choice-list { margin-block: .35rem; padding-left: 1.15rem; }
+.pbta-skin-bedlam-hall .pbta-choice-list li { margin-bottom: .16rem; }
+.pbta-skin-bedlam-hall .pbta-choice-list input[data-pbta-choice-key] { transform: translateY(.08em); }
+
+.pbta-skin-bedlam-hall :is(.pbta-bedlam-reference, .pbta-bedlam-mechanics) {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pbta-skin-bedlam-hall :is(.pbta-bedlam-reference summary, .pbta-bedlam-mechanics summary, .pbta-dice-header) {
+  display: block;
+  position: relative;
+  padding: 5px 0 5px .85rem;
+  background: transparent;
+  color: var(--pbta-ink);
+  font-family: var(--pbta-caption-font);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .15em;
+  line-height: 1.25;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.pbta-skin-bedlam-hall :is(.pbta-bedlam-reference summary, .pbta-bedlam-mechanics summary, .pbta-dice-header)::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--pbta-muted);
+  font-size: .72rem;
+  letter-spacing: 0;
+}
+
+.pbta-skin-bedlam-hall :is(.pbta-bedlam-reference[open], .pbta-bedlam-mechanics[open]) > summary::before {
+  content: "▾";
+}
+
+.pbta-skin-bedlam-hall :is(.pbta-bedlam-reference .pbta-full-move-body, .pbta-bedlam-mechanics .pbta-dice-body) {
+  margin: 0;
+  padding: 1px 0 7px .85rem;
+  color: var(--pbta-ink);
+  font-family: var(--pbta-body-font);
+  font-size: .84rem;
+  line-height: 1.42;
+}
+
+.pbta-bedlam-mechanics-overview,
+.pbta-skin-bedlam-hall .pbta-dice-grid,
+.pbta-skin-bedlam-hall .pbta-dice-equation {
+  font-family: var(--pbta-body-font);
+}
+
+.pbta-bedlam-mechanics-overview {
+  margin: 0 0 .5rem;
+  color: var(--pbta-muted);
+  font-size: .8rem;
+}
+
+.pbta-bedlam-mechanics-overview strong,
+.pbta-skin-bedlam-hall .pbta-dice-grid > strong {
+  color: var(--pbta-muted);
+  font-family: var(--pbta-caption-font);
+  font-size: .66rem;
+  font-weight: 900;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.pbta-skin-bedlam-hall .pbta-dice-grid {
+  grid-template-columns: minmax(4.9rem, auto) minmax(0, 1fr);
+  gap: .22rem .45rem;
+  align-items: center;
+  color: var(--pbta-ink);
+}
+
+.pbta-skin-bedlam-hall .pbta-die-pill {
+  min-width: 1.58em;
+  padding: .05rem .36rem;
+  border: 1px solid color-mix(in srgb, var(--pbta-muted) 45%, transparent);
+  border-radius: 4px;
+  background: rgba(255, 253, 247, .7);
+  color: var(--pbta-ink);
+  font-family: var(--pbta-body-font);
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.pbta-skin-bedlam-hall .pbta-die-pill:not(.pbta-die-pill--dropped) {
+  border-color: color-mix(in srgb, var(--pbta-result-outline) 32%, var(--pbta-muted));
+  background: color-mix(in srgb, var(--pbta-result-outline) 8%, #fffdf7);
+}
+
+.pbta-skin-bedlam-hall .pbta-die-pill--dropped {
+  opacity: .48;
+  text-decoration: line-through;
+}
+
+.pbta-skin-bedlam-hall .pbta-dice-equation {
+  margin-top: .52rem;
+  padding-top: .52rem;
+  border-top: 1px solid var(--pbta-divider);
+  color: var(--pbta-ink);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.pbta-skin-bedlam-hall :is(.pbta-bedlam-title, .pbta-bedlam-meta, .pbta-bedlam-outcome-name, summary, p, li, a, .pbta-result-text-body, .pbta-full-move-body, .pbta-dice-body) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Bedlam Hall compact responsive refinement -------------------------------- */
+.pbta-skin-bedlam-hall .pbta-bedlam-title :is(a, .content-link) {
+  display: inline !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+.pbta-skin-bedlam-hall .pbta-result-text-body :is(p, ul, ol) {
+  margin-block: .32rem;
+}
+
+.pbta-skin-bedlam-hall .pbta-choice-list label {
+  display: grid;
+  grid-template-columns: 1.05rem minmax(0, 1fr);
+  gap: .38rem;
+  align-items: start;
+}
+
+.pbta-skin-bedlam-hall .pbta-choice-list input[data-pbta-choice-key] {
+  width: .92rem;
+  height: .92rem;
+  margin: .15rem 0 0;
+}
+
+.pbta-skin-bedlam-hall .pbta-choice-list span,
+.pbta-skin-bedlam-hall .pbta-choice-list label {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 340px) {
+  .pbta-bedlam-header,
+  .pbta-bedlam-body { padding-inline: 10px; }
+  .pbta-bedlam-title { font-size: clamp(1.08rem, 6.8vw, 1.32rem); }
+  .pbta-bedlam-outcome { padding-inline: 9px; }
+  .pbta-bedlam-result-line {
+  grid-area: result; gap: .45rem; }
+  .pbta-bedlam-total { min-width: 1.75rem; padding-inline: .32rem; }
+}
+
+
+@container (max-width: 300px) {
+  .pbta-bedlam-result-line {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .pbta-bedlam-total {
+    justify-self: center;
+  }
+
+  .pbta-skin-bedlam-hall .pbta-dice-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .18rem;
+  }
+}

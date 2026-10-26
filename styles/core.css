@@ -1,0 +1,407 @@
+/* ========================================================================== */
+/* PbtA Roll Helper - Core layout                                             */
+/* ========================================================================== */
+
+.pbta-roll-card,
+.pbta-roll-card * {
+  box-sizing: border-box;
+}
+
+.pbta-roll-card {
+  --pbta-result-bg: #444;
+  --pbta-result-outline: #222;
+  --pbta-card-bg: rgba(255, 255, 255, .02);
+  --pbta-card-text: inherit;
+  --pbta-card-font: inherit;
+  --pbta-card-shadow: none;
+  --pbta-panel-bg: rgba(255, 255, 255, .22);
+  --pbta-panel-header-bg: rgba(0, 0, 0, .06);
+
+  display: grid;
+  grid-template-areas:
+    "header"
+    "body";
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid var(--pbta-result-outline);
+  border-radius: 10px;
+  background: var(--pbta-card-bg);
+  color: var(--pbta-card-text);
+  box-shadow: var(--pbta-card-shadow);
+  font-family: var(--pbta-card-font);
+}
+
+.pbta-roll-card :is(h1, h2, h3, h4, p, summary, a, span, strong, em, li, div),
+.pbta-card-body,
+.pbta-skin-body {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Grid layout foundation ---------------------------------------------------- */
+.pbta-card-header,
+.pbta-skin-header,
+.pbta-bedlam-header {
+  grid-area: header;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pbta-card-body,
+.pbta-skin-body,
+.pbta-bedlam-body {
+  grid-area: body;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: auto;
+  row-gap: var(--pbta-card-section-gap, .65rem);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pbta-card-body > *,
+.pbta-skin-body > *,
+.pbta-bedlam-body > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Legacy/shared card renderer --------------------------------------------- */
+.pbta-card-header {
+  container-type: inline-size;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, var(--pbta-result-bg), var(--pbta-header-bg, var(--pbta-result-bg)));
+  color: #fff;
+}
+
+.pbta-card-header-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: start;
+  gap: .45rem;
+}
+
+.pbta-card-title {
+  min-width: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 1.35em;
+  line-height: 1.15;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+.pbta-card-title :is(a, .content-link),
+.pbta-card-title a.content-link {
+  display: inline !important;
+  color: #fff;
+  font-weight: 700;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  /* Foundry's content-link border/background/padding is drawn as an inline box.
+     Without this, a title that wraps across lines gets one box sliced at the
+     wrap point (mismatched rounding, uneven padding on the shorter line).
+     box-decoration-break: clone draws a complete, evenly-padded, evenly-rounded
+     box on every line instead. */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.pbta-card-total {
+  justify-self: end;
+  max-width: 4.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pbta-card-result-label {
+  display: block;
+  margin-top: .35rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.pbta-card-body {
+  padding: 10px 12px;
+  overflow: hidden;
+}
+
+.pbta-card-meta {
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+/* v12+ skin renderer base -------------------------------------------------- */
+.pbta-skin {
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+.pbta-skin-header {
+  container-type: inline-size;
+  display: grid;
+  grid-template-areas:
+    "title total"
+    "result result"
+    "actor actor";
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: start;
+  gap: .25rem .55rem;
+  padding: 12px 14px 10px;
+  background: linear-gradient(135deg, var(--pbta-result-bg), var(--pbta-header-bg, var(--pbta-result-bg)));
+  color: #fff;
+}
+
+.pbta-skin-header-row {
+  display: contents;
+}
+
+.pbta-skin-title {
+  grid-area: title;
+  min-width: 0;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.12rem, 3.4vw, 1.35em);
+  line-height: 1.05;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+.pbta-skin-title :is(a, .content-link),
+.pbta-skin-title a.content-link {
+  display: inline !important;
+  color: #fff;
+  font-weight: 800;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.pbta-skin-total {
+  grid-area: total;
+  justify-self: end;
+  min-width: 1.7em;
+  max-width: 4.5rem;
+  font-size: clamp(1.22rem, 4vw, 1.65em);
+  font-weight: 900;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pbta-skin-result,
+.pbta-skin-move-type {
+  grid-area: result;
+  margin-top: 4px;
+  font-size: .82em;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .95;
+}
+
+.pbta-skin-header .pbta-skin-actor-line {
+  grid-area: actor;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pbta-skin-body {
+  padding: 11px 13px 13px;
+  overflow: hidden;
+}
+
+.pbta-skin-actor {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.pbta-skin-actor-line {
+  margin-top: .25rem;
+  font-size: .84rem;
+  line-height: 1.25;
+  opacity: .92;
+}
+
+.pbta-skin-outcome-band {
+  margin: -.2rem 0 .35rem;
+  color: var(--pbta-result-outline);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.pbta-skin-outcome {
+  max-width: 100%;
+  min-width: 0;
+  margin: 10px 0;
+  padding: 10px 11px;
+  overflow-wrap: anywhere;
+  border: 1px solid color-mix(in srgb, var(--pbta-result-outline) 35%, transparent);
+  border-left: 5px solid var(--pbta-result-bg);
+  border-radius: 7px;
+  background: var(--pbta-outcome-bg, rgba(255, 255, 255, .36));
+}
+
+.pbta-skin-kicker {
+  margin-bottom: 6px;
+  color: var(--pbta-result-outline);
+  font-size: .78em;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.pbta-skin-reference,
+.pbta-skin-mechanics {
+  max-width: 100%;
+  min-width: 0;
+  margin: 9px 0;
+  overflow: hidden;
+  border-radius: 7px;
+  background: var(--pbta-panel-bg);
+}
+
+.pbta-skin-reference summary,
+.pbta-skin-mechanics summary {
+  padding: 7px 9px;
+  background: var(--pbta-panel-header-bg);
+}
+
+.pbta-skin-reference .pbta-full-move-body,
+.pbta-skin-mechanics .pbta-dice-body {
+  margin-top: 0;
+  padding: 9px 10px 11px;
+}
+
+.pbta-skin-system .pbta-skin-outcome,
+.pbta-skin-system .pbta-skin-reference,
+.pbta-skin-system .pbta-skin-mechanics {
+  margin-top: .7rem;
+}
+
+.pbta-skin-system .pbta-choice-list { margin-left: 1.1rem; }
+.pbta-skin-system .pbta-choice-list--checkbox li { margin: .22rem 0 .22rem -1rem; line-height: 1.35; }
+.pbta-skin-system .pbta-choice-list--checkbox label { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: .35rem; align-items: start; }
+.pbta-skin-system .pbta-choice-list--checkbox input[type="checkbox"] { margin-top: .18rem; }
+
+/* Dialog ------------------------------------------------------------------- */
+.pbta-roll-helper-dialog {
+  min-width: min(560px, calc(100vw - 48px));
+}
+
+.pbta-roll-helper-dialog .window-content,
+.pbta-roll-helper-dialog .dialog-content {
+  overflow: visible;
+}
+
+.pbta-roll-dialog {
+  min-width: min(520px, calc(100vw - 72px));
+}
+
+.pbta-roll-dialog .form-group {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: .65rem;
+}
+
+.pbta-roll-dialog select {
+  width: 100%;
+  min-width: 0;
+}
+
+.pbta-hidden {
+  display: none !important;
+}
+
+/* GM-only debug info. Hidden by default because chat HTML is shared; revealed
+   per-client for GM viewers by the renderChatMessageHTML hook. */
+.pbta-debug-info {
+  display: none;
+  margin-top: .5rem;
+  padding-top: .35rem;
+  border-top: 1px dashed rgba(127, 127, 127, .4);
+  font-size: .72rem;
+  opacity: .75;
+}
+
+.pbta-debug-info--visible { display: block; }
+
+@container (max-width: 305px) {
+  .pbta-card-header-main {
+    grid-template-columns: 1fr;
+    row-gap: .15rem;
+  }
+
+  .pbta-skin-header {
+    grid-template-areas:
+      "title"
+      "total"
+      "result"
+      "actor";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pbta-card-total,
+  .pbta-skin-total {
+    justify-self: start;
+    max-width: none;
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .pbta-roll-dialog,
+  .pbta-roll-helper-dialog { min-width: 0; }
+  .pbta-roll-dialog .form-group { grid-template-columns: 1fr; gap: .25rem; }
+}
+
+@media (max-width: 420px) {
+  .pbta-dice-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pbta-dice-total {
+    justify-self: start;
+  }
+
+  .pbta-dice-grid {
+    grid-template-columns: minmax(4.75em, max-content) minmax(0, 1fr);
+  }
+}
+
+.pbta-roll-dialog input[type="search"],
+.pbta-roll-dialog input[type="number"],
+.pbta-roll-dialog input[type="text"] {
+  width: 100%;
+  min-width: 0;
+}
+
+.pbta-dialog-modifier-fields {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: .45rem;
+}
+
+.pbta-card-modifier-note {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
+  .pbta-dialog-modifier-fields {
+    grid-template-columns: 1fr;
+  }
+}

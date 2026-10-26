@@ -1,0 +1,64 @@
+/* PbtA Roll Helper theme: Masks — comic panel */
+.pbta-theme-masks {
+  --pbta-card-bg: #f4fbff;
+  --pbta-card-text: #111820;
+  --pbta-card-font: Arial, Helvetica, sans-serif;
+  --pbta-panel-bg: rgba(255, 255, 255, .86);
+  --pbta-panel-header-bg: rgba(31, 143, 203, .14);
+  --pbta-header-bg: #135d8a;
+  --pbta-die-bg: #ffffff;
+}
+
+.pbta-theme-masks.pbta-skin-system {
+  border: 3px solid #111820;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 10px 10px, rgba(17,24,32,.05) 1px, transparent 1px) 0 0/8px 8px,
+    #f4fbff;
+  box-shadow: 5px 5px 0 rgba(0,0,0,.20);
+  color: #111820;
+}
+
+.pbta-theme-masks .pbta-skin-header {
+  background: linear-gradient(135deg,#0f4a75,var(--pbta-result-bg));
+  border-bottom: 3px solid #111820;
+  color: #fff;
+}
+
+.pbta-theme-masks .pbta-skin-title {
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  text-shadow: 2px 2px 0 rgba(0,0,0,.22);
+  font-size: clamp(1.15rem, 5vw, 1.52rem);
+}
+
+.pbta-theme-masks .pbta-skin-total {
+  padding: .08rem .34rem;
+  border: 3px solid #111820;
+  background: #fff;
+  color: #111820;
+  box-shadow: 2px 2px 0 rgba(0,0,0,.20);
+}
+
+.pbta-theme-masks .pbta-skin-outcome {
+  border: 3px solid #111820;
+  border-left: 8px solid var(--pbta-result-bg);
+  border-radius: 0;
+  background: #fff;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.12);
+}
+
+.pbta-theme-masks .pbta-skin-kicker,
+.pbta-theme-masks .pbta-skin-outcome-band {
+  color: var(--pbta-result-bg);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.pbta-theme-masks :is(.pbta-skin-reference,.pbta-skin-mechanics) {
+  border: 2px solid #111820;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 rgba(0,0,0,.10);
+}
+
+.pbta-theme-masks :is(.pbta-skin-title,.pbta-skin-result,.pbta-skin-actor-line,.pbta-skin-kicker,summary,p,li,a){overflow-wrap:anywhere;word-break:normal;}

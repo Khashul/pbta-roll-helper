@@ -1,0 +1,49 @@
+/* PbtA Roll Helper theme: Monster of the Week — field case file */
+.pbta-theme-monster-of-the-week {
+  --pbta-card-bg: #e8ece7;
+  --pbta-card-text: #172025;
+  --pbta-card-font: Arial, Helvetica, sans-serif;
+  --pbta-panel-bg: rgba(255, 255, 255, .68);
+  --pbta-panel-header-bg: rgba(16, 41, 48, .11);
+  --pbta-header-bg: #1f3941;
+  --pbta-die-bg: #f7fbfb;
+}
+
+.pbta-theme-monster-of-the-week.pbta-skin-system {
+  border-radius: 3px;
+  border-color: #233940;
+  background: linear-gradient(180deg,#f2f4f1,#dfe7e2);
+  color: #172025;
+}
+
+.pbta-theme-monster-of-the-week .pbta-skin-header {
+  background: linear-gradient(135deg,#162b31,var(--pbta-result-bg));
+  border-bottom: 3px solid rgba(255,255,255,.18);
+  color: #f7fbfb;
+}
+
+.pbta-theme-monster-of-the-week .pbta-skin-title {
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.pbta-theme-monster-of-the-week .pbta-skin-result,
+.pbta-theme-monster-of-the-week .pbta-skin-kicker,
+.pbta-theme-monster-of-the-week summary {
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.pbta-theme-monster-of-the-week .pbta-skin-outcome {
+  background: rgba(255,255,255,.75);
+  border-style: dashed;
+  border-color: rgba(23,32,37,.36);
+  border-left: 6px solid var(--pbta-result-bg);
+}
+
+.pbta-theme-monster-of-the-week :is(.pbta-skin-reference,.pbta-skin-mechanics) {
+  border: 1px dashed rgba(23,32,37,.30);
+  border-radius: 3px;
+}
+
+.pbta-theme-monster-of-the-week :is(.pbta-skin-title,.pbta-skin-result,.pbta-skin-actor-line,.pbta-skin-kicker,summary,p,li,a){overflow-wrap:anywhere;word-break:normal;}

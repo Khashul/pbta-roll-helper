@@ -1,0 +1,43 @@
+<form class="pbta-roll-dialog">
+  <div class="form-group pbta-dialog-search-row">
+    <label for="pbta-move-search">Find Move</label>
+    <input id="pbta-move-search" type="search" name="moveSearch" placeholder="Type to filter moves..." autocomplete="off" data-pbta-move-filter>
+  </div>
+
+  <div class="form-group">
+    <label>Move</label>
+    <select name="moveId">{{{moveOptions}}}</select>
+  </div>
+
+  <div class="form-group">
+    <label>Stat</label>
+    <select name="statKey">{{{statOptions}}}</select>
+  </div>
+
+  <div class="form-group pbta-dialog-custom-stat-row {{#unless statIsCustom}}pbta-hidden{{/unless}}" data-pbta-custom-stat-row>
+    <label>Custom Value</label>
+    <input type="number" name="customModifier" value="{{customModifier}}" step="1" placeholder="0">
+  </div>
+
+  <div class="form-group">
+    <label>Roll</label>
+    <select name="mode">
+      <option value="normal" {{#if modeNormal}}selected{{/if}}>Normal</option>
+      <option value="advantage" {{#if modeAdvantage}}selected{{/if}}>Something Extra</option>
+      <option value="disadvantage" {{#if modeDisadvantage}}selected{{/if}}>Something Less</option>
+    </select>
+  </div>
+
+  <div class="form-group pbta-dialog-modifier-row">
+    <label>Modifier</label>
+    <div class="pbta-dialog-modifier-fields">
+      <input type="number" name="situationalModifier" value="{{situationalModifier}}" step="1" placeholder="0">
+      <input type="text" name="modifierReason" value="{{modifierReason}}" placeholder="Reason, e.g. +1 forward">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Visibility</label>
+    <select name="visibility">{{{visibilityOptions}}}</select>
+  </div>
+</form>

@@ -1,0 +1,287 @@
+/* ========================================================================== */
+/* PbtA Roll Helper - Shared components                                       */
+/* ========================================================================== */
+
+.pbta-result-text,
+.pbta-full-move,
+.pbta-dice-breakdown,
+.pbta-skin-outcome,
+.pbta-skin-reference,
+.pbta-skin-mechanics {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.pbta-result-text-body,
+.pbta-full-move-body,
+.pbta-dice-body,
+.pbta-skin-outcome,
+.pbta-skin-reference .pbta-full-move-body,
+.pbta-skin-mechanics .pbta-dice-body {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Dice --------------------------------------------------------------------- */
+.pbta-dice-breakdown {
+  margin: 8px 0 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, .18);
+  border-radius: 8px;
+  background: var(--pbta-panel-bg, rgba(255, 255, 255, .28));
+}
+
+.pbta-dice-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 10px;
+  background: var(--pbta-panel-header-bg, rgba(0, 0, 0, .06));
+}
+
+.pbta-dice-header > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.pbta-dice-breakdown > summary.pbta-dice-header,
+.pbta-roll-card details > summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pbta-dice-total {
+  justify-self: end;
+  max-width: 100%;
+  font-size: 1.35em;
+  line-height: 1;
+}
+
+.pbta-dice-body {
+  padding: 8px 10px;
+  line-height: 1.45;
+}
+
+.pbta-dice-grid {
+  display: grid;
+  grid-template-columns: minmax(4.5em, max-content) minmax(0, 1fr);
+  gap: 4px 8px;
+  align-items: center;
+}
+
+.pbta-dice-grid > * { min-width: 0; }
+
+.pbta-dice-equation {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(0, 0, 0, .14);
+  font-weight: 700;
+}
+
+.pbta-die-pill {
+  display: inline-block;
+  min-width: 1.65em;
+  max-width: 100%;
+  margin: 1px 2px;
+  padding: 2px 6px;
+  border: 1px solid rgba(0, 0, 0, .25);
+  border-radius: 6px;
+  background: var(--pbta-die-bg, rgba(255, 255, 255, .55));
+  font-weight: 700;
+  text-align: center;
+}
+
+.pbta-die-pill:not(.pbta-die-pill--dropped) {
+  border-color: color-mix(in srgb, var(--pbta-result-bg) 38%, rgba(0, 0, 0, .25));
+  background: color-mix(in srgb, var(--pbta-result-bg) 12%, var(--pbta-die-bg, rgba(255, 255, 255, .65)));
+}
+
+.pbta-die-pill--dropped {
+  opacity: .45;
+  text-decoration: line-through;
+  border-color: rgba(128, 32, 32, .35);
+  background: rgba(128, 32, 32, .08);
+}
+
+/* Outcome/reference panels ------------------------------------------------- */
+.pbta-result-text,
+.pbta-full-move {
+  margin: 8px 0 10px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--pbta-result-bg, #444) 42%, transparent);
+  border-radius: 8px;
+  background: var(--pbta-panel-bg, rgba(255, 255, 255, .22));
+}
+
+.pbta-result-text summary,
+.pbta-full-move summary {
+  padding: 7px 10px;
+  background: var(--pbta-panel-header-bg, rgba(0, 0, 0, .06));
+  line-height: 1.35;
+}
+
+.pbta-result-text summary {
+  background: color-mix(in srgb, var(--pbta-result-bg, #444) 18%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--pbta-result-bg, #444) 28%, transparent);
+  font-size: 1.05em;
+}
+
+.pbta-result-text:not([open]) summary { border-bottom: 0; }
+
+.pbta-result-text-body,
+.pbta-full-move-body {
+  margin-top: 6px;
+  padding: 2px 10px 8px;
+  line-height: 1.35;
+}
+
+.pbta-outcome-line,
+.pbta-outcome-prompt {
+  margin: 6px 0;
+  line-height: 1.35;
+}
+
+.pbta-rule {
+  margin: 8px 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+.pbta-roll-card details { border-radius: 8px; }
+.pbta-roll-card details > summary { list-style-position: inside; }
+
+/* Choices ------------------------------------------------------------------ */
+.pbta-choice-list,
+.pbta-choice-list li,
+.pbta-choice-list label {
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.pbta-choice-list {
+  margin: 6px 0 6px 1.2em;
+  padding: 0;
+}
+
+.pbta-choice-list label { display: inline; }
+
+.pbta-choice-list--checkbox li {
+  list-style: none;
+  margin-left: -1.1em;
+}
+
+.pbta-choice-list input[data-pbta-choice-key] {
+  /* Foundry core (v13+) draws its checkbox visuals - box and check icon - via a
+     ::before/::after pseudo-element layered on top of the input, not via the
+     input's native appearance. Setting appearance:none on the input itself (see
+     below) only strips the OS-native control; it does nothing to stop core's own
+     pseudo-element from also painting on top. Both layers have to be reset
+     explicitly, or core's box/tick shows through behind/around ours. */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  flex: 0 0 auto;
+  position: relative;
+  top: .1em;
+  width: 1em;
+  height: 1em;
+  margin: 0 .35em 0 0;
+  border: 1px solid rgba(0, 0, 0, .5);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .65);
+  vertical-align: text-top;
+  cursor: pointer;
+}
+
+.pbta-choice-list input[data-pbta-choice-key]::before,
+.pbta-choice-list input[data-pbta-choice-key]::after {
+  content: none;
+  display: none;
+}
+
+.pbta-choice-list input[data-pbta-choice-key]:checked {
+  border-color: var(--pbta-result-outline, #444);
+  background: var(--pbta-result-outline, #444);
+}
+
+.pbta-choice-list input[data-pbta-choice-key]:checked::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: .28em;
+  top: .03em;
+  width: .28em;
+  height: .5em;
+  border: solid #fff;
+  border-width: 0 .16em .16em 0;
+  transform: rotate(45deg);
+}
+
+.pbta-choice-disabled,
+.pbta-choices-locked input[data-pbta-choice-key] {
+  cursor: not-allowed;
+}
+
+.pbta-choices-locked .pbta-choice-list--checkbox { opacity: .75; }
+
+.pbta-choices-locked input[data-pbta-choice-key],
+input[data-pbta-choice-key][disabled] {
+  pointer-events: none;
+  opacity: .55;
+}
+
+/* Resource-spend control (e.g. Bedlam Hall's Prestige, or an equivalent
+   resource in another PbtA hack). Rendered on every card whose actor has a
+   value at the configured resource path, but ships hidden by default the
+   same way the debug-info block does - the correct visible/enabled state
+   depends on live, per-client data (current ownership, current balance,
+   current settings) that isn't known at render time, so JS reveals it after
+   the fact. */
+.pbta-resource-control {
+  margin: .5rem 0;
+  padding: .5rem .6rem;
+  border: 1px solid rgba(127, 127, 127, .35);
+  border-radius: 6px;
+  background: rgba(127, 127, 127, .06);
+  font-size: .8rem;
+}
+
+.pbta-resource-control label {
+  display: block;
+  margin-bottom: .3rem;
+  font-weight: 600;
+}
+
+.pbta-resource-available {
+  font-weight: 400;
+  opacity: .75;
+}
+
+.pbta-resource-row {
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+}
+
+.pbta-resource-row input[type="number"] {
+  width: 4rem;
+  flex: 0 0 auto;
+}
+
+.pbta-resource-row button {
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.pbta-resource-spent {
+  font-weight: 600;
+  color: var(--pbta-result-outline, inherit);
+}
+
+.pbta-resource-locked {
+  font-style: italic;
+  opacity: .7;
+}

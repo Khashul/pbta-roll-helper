@@ -1,0 +1,22 @@
+/* PbtA Roll Helper theme: Classic PbtA */
+.pbta-theme-classic-pbta {
+  --pbta-card-bg: rgba(255, 255, 255, .04);
+  --pbta-panel-bg: rgba(255, 255, 255, .30);
+  --pbta-panel-header-bg: rgba(0, 0, 0, .07);
+}
+
+.pbta-theme-classic-pbta.pbta-skin-system {
+  border: 1px solid var(--pbta-result-outline);
+  border-radius: 8px;
+}
+
+.pbta-theme-classic-pbta .pbta-skin-outcome {
+  background: rgba(255, 255, 255, .42);
+  border-left: 5px solid var(--pbta-result-bg);
+}
+
+.pbta-theme-classic-pbta .pbta-skin-title {
+  font-size: clamp(1.12rem, 5vw, 1.45rem);
+}
+
+.pbta-theme-classic-pbta :is(.pbta-skin-title,.pbta-skin-result,.pbta-skin-actor-line,.pbta-skin-kicker,summary,p,li,a){overflow-wrap:anywhere;word-break:normal;}

@@ -1,0 +1,58 @@
+/* PbtA Roll Helper theme: Dungeon World — adventurer's manuscript */
+.pbta-theme-dungeon-world {
+  --pbta-card-bg: #efe3c4;
+  --pbta-card-text: #271e12;
+  --pbta-card-font: Georgia, "Times New Roman", serif;
+  --pbta-panel-bg: rgba(255, 247, 220, .88);
+  --pbta-panel-header-bg: rgba(60, 45, 20, .13);
+  --pbta-header-bg: #4a3822;
+  --pbta-die-bg: #fff2ca;
+}
+
+.pbta-theme-dungeon-world.pbta-skin-system {
+  border: 2px ridge #5c4426;
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(110,80,35,.08), transparent 28%),
+    linear-gradient(180deg,#f7edcf,#e6d4a8);
+  color: #271e12;
+}
+
+.pbta-theme-dungeon-world .pbta-skin-header {
+  background: linear-gradient(135deg,#362817,var(--pbta-result-bg));
+  border-bottom: 3px double #d5bd7d;
+  color: #fff6dc;
+}
+
+.pbta-theme-dungeon-world .pbta-skin-title {
+  font-variant: small-caps;
+  letter-spacing: .035em;
+  font-size: clamp(1.2rem, 5vw, 1.55rem);
+}
+
+.pbta-theme-dungeon-world .pbta-skin-total {
+  min-width: 2.1rem;
+  padding: .05rem .35rem;
+  border: 1px solid #d5bd7d;
+  border-radius: 999px;
+  background: rgba(0,0,0,.22);
+}
+
+.pbta-theme-dungeon-world .pbta-skin-outcome {
+  background: rgba(255, 252, 235, .72);
+  border: 1px solid rgba(80,55,26,.35);
+  border-left: 6px solid var(--pbta-result-bg);
+  border-radius: 2px;
+}
+
+.pbta-theme-dungeon-world :is(summary,.pbta-skin-kicker,.pbta-skin-result) {
+  font-variant: small-caps;
+  letter-spacing: .08em;
+}
+
+.pbta-theme-dungeon-world :is(.pbta-skin-reference,.pbta-skin-mechanics) {
+  border: 1px solid rgba(80,55,26,.30);
+  border-radius: 2px;
+}
+
+.pbta-theme-dungeon-world :is(.pbta-skin-title,.pbta-skin-result,.pbta-skin-actor-line,.pbta-skin-kicker,summary,p,li,a){overflow-wrap:anywhere;word-break:normal;}
